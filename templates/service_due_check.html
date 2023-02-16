@@ -1,0 +1,46 @@
+  {% extends 'base.html' %}
+
+  {% block head %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  {% endblock head %}
+
+  {% block body %}
+    {% for message in messages %}
+      <div class="card-panel yellow lighten-2">
+          <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+
+  <div>
+    <h3 style="text-align:center">Vehicle Service Check</h3>
+    <form method="post" class="row">
+      {% csrf_token %}
+      <div class="input-field col s8 offset-s2 l4 offset-l4">
+        <input type="text" name="register_no" placeholder="Enter registration number"><br>
+      </div>
+
+      <div class="input-field center col s8 offset-s2">
+        <button class="waves-effect waves-light btn-large findbtn" type="submit">submit</button>
+    </div>
+    </form>
+
+  </div>
+  <div style="text-decoration:None;margin-left:36%;">
+    <h4><p> {{ vehicle.Bike_Name }}</p></h4>
+    <h6><p>{{ odo_msg }} {{ next_service_odo}}</p>
+    <p>{{ date_msg }}{{next_service_date}}</p></h6>
+
+  </div>
+<<<<<<< HEAD
+  {% endblock %}
+
+  <div class="input-field col s8 offset-s2 l4 offset-l4">
+    <input type="text" name="username" id="username">
+    <label for="username">Username:</label>
+</div>
+=======
+  {% endblock body %}
+
+
+>>>>>>> conflicts resolved

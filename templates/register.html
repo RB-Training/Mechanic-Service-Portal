@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<style>
+    .registerDiv{
+        margin-top:3%;
+        margin-left:auto;
+        margin-right:auto;
+        width:30%;
+    }
+</style>
+{% endblock head %}
+{% block body %}
+{% for message in messages %}
+<div class="card-panel yellow lighten-2">
+    <strong> {{message}} </strong>
+</div>
+{% endfor %}
+<h1 style="text-align:center">Mechanic Registration</h1>
+<div class="registerDiv">
+    <div class="">
+    <form method="POST" class="col l6 m8 s12 offset-l3">
+        {% csrf_token %}
+        <div class="input-field">
+            <input type="text" name="username" id="username">
+            <label for="username">Username:</label>
+        </div>
+        <div class="input-field">
+            <input type="password" name="pass1" id="pass1">
+            <label for="pass1">Password:</label>
+        </div>
+        <div class="input-field">
+            <input type="password" name="pass2" id="pass2">
+            <label for="pass2">Re-enter Password:</label>
+        </div>
+        <div class="input-field center">
+            <button class="waves-effect waves-light btn-large findbtn" type="submit">Register</button>
+        </div>
+    </form>
+</div>
+</div>
+{% endblock body %}
+
+
+
+
+

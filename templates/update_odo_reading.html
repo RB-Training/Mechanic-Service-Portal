@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+  .odoDiv{
+        margin-top:5%;
+        margin-left:auto;
+        margin-right:auto;
+        width: 25%;
+  }
+  .findbtn{
+    background-color: #FED250;
+    width: 25%;
+  }
+</style>
+{% endblock head %}
+{% block body %}
+    {% for message in messages %}
+      <div class="card-panel yellow lighten-2">
+          <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+<div>
+  <h4 style="text-align:center">Update Odo Reading</h4>
+  <div class="odoDiv">
+    <form method="post" class="col s12">
+      {% csrf_token %}
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.as_p }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field center">
+          <button class="waves-effect waves-light btn-large findbtn col s8 offset-s2" type="submit" name="action">Update</button>
+        </div>
+      </div>
+    </form>
+</div>
+</div>
+{% endblock body %}
+
+

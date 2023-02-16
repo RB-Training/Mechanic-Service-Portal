@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+
+
+    <title>Royal Brothers</title>
+    {% block css %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+    {% endblock css %}
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        .navv{
+            display:flex;
+            width:100%;
+            padding:0;
+            background-color:#ededed;
+            justify-content:space-between;
+        }
+        .username{
+            margin-top:2.5%;
+            width:15%;
+            text-align:center;
+        }
+        .buttonGrid{
+            margin-top:100px ;
+            text-align:center;
+        }
+
+        .margin-btn{
+            margin:15px;
+        }
+        .findbtn{
+            background-color: #FED250 !important;
+            color:black !important;
+            width:19em;
+            height:4em;
+
+        }
+        .findbtn:hover{
+            background-color:#fdde6c !important;
+            color:black !important;
+        }
+    </style>
+    {% block head %}{% endblock head %}
+</head>
+<body>
+    {% load static %}
+    <div class="navv">
+        <div class="logo">
+
+            <a href="portal"><img src="{% static 'newLogo.png' %}" alt="logo" width="300" height="130"></a>
+
+        </div>
+        <div class="username">
+            {% if user.is_authenticated %}
+                <span> Hello,{{user.username}}</span><br>
+                <span ><a style="text-decoration:none" href="logout">Logout</a></span>
+
+            {% endif %}
+        </div>
+    </div>
+
+
+</nav>
+    {% block javascript %}
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+
+  // Initialize materialize data picker
+  $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+  $('select').formSelect();
+
+});
+</script>
+{% endblock javascript %}
+    {% block body %}{% endblock body %}
+</body>
+</html>

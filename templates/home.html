@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        .homeDiv{
+            text-align:center;
+            margin-top:90px;
+        }
+    </style>
+{% endblock head %}
+{% block body %}
+<h1 style="text-align:center">Mechanic Portal</h1>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="homeDiv">
+            <div class="row">
+                <div class="col l12 s12 m12"><a href="register" class="waves-effect waves-light btn-large findbtn">Register</a> </div>
+            </div>
+            <div class="row">
+
+                <div class="col l12 s12 m12"><a href="login" class="waves-effect waves-light btn-large findbtn">Login</a> </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock body %}

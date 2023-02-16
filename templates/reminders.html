@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 style="text-align:center;margin-top:3%;"><b>Bikes to be serviced</b></h2>
+<div class="row justify-content-center">
+    <div class="col-auto">
+    <table class="table table-bordered" style="margin-top:7%;text-align:center">
+        <thead>
+            <tr class="table" style="background-color:#fbe790">
+                <th scope="col">Registration No.</th>
+                <th scope="col">Bike Name</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Due Days</th>
+                <th scope="col">Due ODO</th>
+                <th scope="col">Due Kms</th>
+            </tr>
+        </thead>
+        {% for data in list %}
+            <tr >
+                <td>{{ data.Bike_Name }}</td>
+                <td>{{ data.due_service_date }}</td>
+                <td>{{ data.remaining_days }}</td>
+                <td>{{ data.remaining_kms }}</td>
+                <td>{{ data.due_service_odo }}</td>
+                <td>{{ data.Register_No }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+
+
+{% endblock body %}

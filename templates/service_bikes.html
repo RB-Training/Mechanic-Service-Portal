@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+    .reminderTable{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+    }
+    tr,th,td{
+        border:2px solid;
+        color:#000000;
+    }
+    th,td{
+        padding:15px;
+    }
+    table{
+        border:solid 2px black
+    }
+
+</style>
+{% endblock head %}
+{% block body %}
+<div class="reminderTable">
+<h2 style="text-align:center;margin-top:3%;"><b>Bikes to be serviced</b></h2>
+<div class="row">
+
+    <table class="centered" style="margin-top:3%;text-align:center">
+            {% if list %}
+            <tr style="background-color:#FED250;color:#000000">
+                <th>S.Number</th>
+                <th>Registration No.</th>
+                <th>Bike Name</th>
+                <th>Due Date</th>
+                <th>Due Days</th>
+                <th>Due ODO</th>
+                <th>Due Kms</th>
+            </tr>
+            {% else %}
+                <h4 style="text-align:center;margin-top:10%">No Vehicles to be serviced</h4>
+            {% endif %}
+
+            {% for data in list %}
+
+            <tr style={{ data.color }}>
+                <td>{{ forloop.counter }}</td>
+                <td>{{  data.Register_No }}</td>
+                <td>{{ data.Bike_Name }}</td>
+                <td>{{ data.due_service_date }}</td>
+                <td>{{ data.remaining_days }}</td>
+                <td>{{ data.due_service_odo }}</td>
+                <td>{{ data.remaining_kms }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
